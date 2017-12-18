@@ -72,5 +72,16 @@ object MyModule {
 
 
 
+  def stimatePi(i: Int): Double = {
+      def loop(i: Int, sum: Int): Double = {
+        if (i < 1) sum
+        else {
+          val x = Math.random
+          val y = Math.random
+          loop(i - 1, sum + (if (x * x + y * y < 1) 1 else 0))
+        }
+      }
+    loop(i,0)
+  }
 }
 
