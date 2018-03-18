@@ -95,7 +95,7 @@ object Listo {
 
 	def flatMap[A,B](as: Listo[A])(f: A => Listo[B]): Listo[B] = concatenate(map(as)(f))
 
-	def filter2[A,B](as:Listo[A])(f: A => Boolean): Listo[B] = flatMap(as)(x => if (f(x)) Listo(x.toString) else Nil)
+	def filter2[A,B](as:Listo[A])(f: A => Boolean): Listo[B] = flatMap(as)(x => if (f(x)) Listo(x) else Nil)
 
 	def zipWith[A,B,C](xs:Listo[A], ys:Listo[B])(f : (A,B) => C ) : Listo[C] = (xs, ys) match {
 		case (Nil,_) => Nil
