@@ -23,8 +23,8 @@ def f(arr: List[Int])(predicate: Int => Boolean): List[Int] = {
 
 def f(arr:List[Int]):List[Int] = filterBaseOnIndex(arr)(x => x % 2 == 0)
 
-def filterBaseOnIndex(arr:List[Int])(cond: Int => Boolean): List[Int] = {
-    def loop(index:Int, cl:List[Int], nl:List[Int]): List[Int] = cl match {
+def filterBaseOnIndex[A](arr:List[A])(cond: Int => Boolean): List[A] = {
+    def loop[A](index:Int, cl:List[A], nl:List[A]): List[A] = cl match {
         case Nil => nl
         case h :: t => if(cond(index)) loop(index +1, t, nl ::: List(h) ) else loop(index +1, t, nl)
     }
